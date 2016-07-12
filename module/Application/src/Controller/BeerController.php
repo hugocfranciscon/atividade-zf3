@@ -127,4 +127,12 @@ class BeerController extends AbstractActionController
         return $view;
     }
 
+    public function closeAction()
+    {
+        session_start();
+        session_destroy();
+        session_commit();
+        return $this->redirect()->toUrl('/');
+    }
+
 }

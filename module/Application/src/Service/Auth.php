@@ -14,9 +14,13 @@ class Auth
 
     public function isAuthorized()
     {
-        if(! $this->request->getHeader('Authorization')){
+        session_start();
+        if (!isset($_SESSION["podeAcessar"])) {
             throw new \Exception("Not authorized", 401);
         }
+        //if(! $this->request->getHeader('Authorization')){
+        //    throw new \Exception("Not authorized", 401);
+        //}
         /*
         if (!$this->isValid()) {
             throw new \Exception("Not authorized", 403);
