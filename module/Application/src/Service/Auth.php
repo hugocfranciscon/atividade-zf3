@@ -14,11 +14,10 @@ class Auth
 
     public function isAuthorized()
     {
-        /*
-        if(! $this->request->getHeader('authorization')){
+        if(! $this->request->getHeader('Authorization')){
             throw new \Exception("Not authorized", 401);
         }
-
+        /*
         if (!$this->isValid()) {
             throw new \Exception("Not authorized", 403);
         }
@@ -29,7 +28,7 @@ class Auth
 
     private function isValid()
     {
-        $token = $this->request->getHeader('authorization');
+        $token = $this->request->getHeader('Authorization');
         //validar o token de alguma forma...
         return true;
     }

@@ -7,6 +7,7 @@
 
 namespace Application;
 
+use Zend\Mvc\Controller\Plugin\FlashMessenger;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;

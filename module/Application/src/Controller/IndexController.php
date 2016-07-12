@@ -9,7 +9,6 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Zend\Mvc\Controller\Plugin\FlashMessenger;
 
 class IndexController extends AbstractActionController
 {
@@ -23,6 +22,8 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
         /* configura o form */
+        $headers = new \Zend\Http\Header\Authorization();
+
         $form = new \Application\Form\User;
         $form->setAttribute('action', '');
 
@@ -45,6 +46,7 @@ class IndexController extends AbstractActionController
 
 				$logado = $this->tableGateway->select(['email' => $data['email'], 'password' => $data['password']]);
         		if (count($logado) != 0) {
+        			$headers->fromString("Authorization:teste");
             		return $this->redirect()->toUrl('/beer');
         		}
             }
