@@ -9,6 +9,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\Mvc\Controller\PluginManager;
 
 class IndexController extends AbstractActionController
 {
@@ -50,6 +51,8 @@ class IndexController extends AbstractActionController
         			
             		return $this->redirect()->toUrl('/beer');
         		}
+
+                echo "<p class='text-center'>Usuario ou senha não encontrados.</p>";
             }
 		}
 
